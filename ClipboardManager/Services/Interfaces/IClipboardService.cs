@@ -1,0 +1,9 @@
+﻿using System.Threading.Tasks;
+
+namespace ClipboardManager.Services.Interfaces;
+
+public interface IClipboardService
+{
+    Task<string> GetTextAsync();
+    Task SetTextAsync(string text);
+}
