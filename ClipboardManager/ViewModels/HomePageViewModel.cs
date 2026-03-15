@@ -27,10 +27,31 @@ public class HomePageViewModel : ViewModelBase
     
     public async Task InitClipboardManager()
     {
+        AddClipboardEntry();
+    }
+
+    public async Task AddClipboardEntry()
+    {
         var topLevel = TopLevel.GetTopLevel(Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop ? desktop.MainWindow : null);
         var text = await topLevel.Clipboard.TryGetTextAsync();
         
-        ClipboardEntries.Add(new ClipboardEntry(text));
+        var entry = new ClipboardEntry(text);
+        if (!ClipboardEntries.Contains(entry))
+        {
+            ClipboardEntries.Add(entry);
+        }
+    }
+    
+    public async Task AddClipboardEntry(string entryText)
+    {
+        var topLevel = TopLevel.GetTopLevel(Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop ? desktop.MainWindow : null);
+        //var text = await topLevel.Clipboard.TryGetTextAsync();
+        
+        var entry = new ClipboardEntry(entryText);
+        if (!ClipboardEntries.Contains(entry))
+        {
+            ClipboardEntries.Add(entry);
+        }
     }
 }
 
@@ -45,4 +66,21 @@ public class ClipboardEntry
         Text = text;
         Time = DateTime.Now;
     }
+
+    // public bool Equals(ClipboardEntry? other)
+    // {
+    //     if (other is null) return false;
+    //     return Text == other.Text;
+    //     
+    // }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is ClipboardEntry other)
+        {
+            return Text == other.Text;
+        }
+        return false;
+    }
+    
 }
