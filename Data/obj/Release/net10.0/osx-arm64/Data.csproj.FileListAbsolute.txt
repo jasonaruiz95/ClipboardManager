@@ -1,0 +1,13 @@
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/bin/Release/net10.0/osx-arm64/Data.deps.json
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/bin/Release/net10.0/osx-arm64/Data.dll
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/bin/Release/net10.0/osx-arm64/Data.pdb
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.csproj.AssemblyReference.cache
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.AssemblyInfoInputs.cache
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.AssemblyInfo.cs
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.csproj.CoreCompileInputs.cache
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.sourcelink.json
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.dll
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/refint/Data.dll
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/Data.pdb
+/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/Release/net10.0/osx-arm64/ref/Data.dll

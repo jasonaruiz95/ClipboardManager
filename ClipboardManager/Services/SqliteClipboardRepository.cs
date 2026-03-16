@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using ClipboardManager.Data;
@@ -15,6 +16,13 @@ public class SqliteClipboardRepository : IClipboardRepository, IAsyncDisposable
 
     public SqliteClipboardRepository(string dbPath = "clipboard.db")
     {
+        var dbFolder = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+    "ClipboardManager"
+);
+        Directory.CreateDirectory(dbFolder); // ensures the folder exists
+        dbPath = Path.Combine(dbFolder, "clipboard.db");
+
         _db = new ClipboardDbContext(dbPath);
 
         // Ensures the database and table exist without needing migrations.
