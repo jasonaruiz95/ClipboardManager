@@ -55,7 +55,8 @@ public partial class App : Application
             });
 
             services.AddTransient<MainWindowViewModel>();
-
+// Add alongside the other service registrations:
+            services.AddSingleton<IClipboardService, ClipboardService>();
             var provider = services.BuildServiceProvider();
 
             // 1. Create the window and assign DataContext
