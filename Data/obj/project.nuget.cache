@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vCC9y2x1ipE=",
+  "dgSpecHash": "2y4q8AWsJaI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jason\\RiderProjects\\ClipboardManager\\Data\\Data.csproj",
   "expectedPackageFiles": [
@@ -22,13 +22,13 @@
     "C:\\Users\\Jason\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.5\\microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
     "C:\\Users\\Jason\\.nuget\\packages\\microsoft.extensions.options\\10.0.5\\microsoft.extensions.options.10.0.5.nupkg.sha512",
     "C:\\Users\\Jason\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.5\\microsoft.extensions.primitives.10.0.5.nupkg.sha512",
+    "C:\\Users\\Jason\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
     "C:\\Users\\Jason\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.11\\sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
     "C:\\Users\\Jason\\.nuget\\packages\\sqlitepclraw.core\\2.1.11\\sqlitepclraw.core.2.1.11.nupkg.sha512",
     "C:\\Users\\Jason\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.11\\sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
     "C:\\Users\\Jason\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.11\\sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
-    "C:\\Users\\Jason\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.3\\microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
-    "C:\\Users\\Jason\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.3.nupkg.sha512",
-    "C:\\Users\\Jason\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.3\\microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512"
+    "C:\\Users\\Jason\\.nuget\\packages\\microsoft.netcore.app.runtime.osx-arm64\\10.0.3\\microsoft.netcore.app.runtime.osx-arm64.10.0.3.nupkg.sha512",
+    "C:\\Users\\Jason\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.osx-arm64\\10.0.3\\microsoft.aspnetcore.app.runtime.osx-arm64.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }
