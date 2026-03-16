@@ -1,25 +1,36 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using Avalonia.Threading;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using ClipboardManager.Services.Interfaces;
 
 namespace ClipboardManager.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public class MainWindowViewModel : ViewModelBase
 {
-    
-    /// <summary>
-    /// Clipboard entries in reverse-chronological order (newest at index 0).
-    /// Bind your ListBox/ItemsControl to this in your View.
-    /// </summary>
+    private readonly IClipboardRepository _repo;
+
     public ObservableCollection<string> ClipboardHistory { get; } = new();
 
-    /// <summary>
-    /// Called by App.axaml.cs when the ClipboardMonitorService detects a new entry.
-    /// Already marshalled onto the UI thread by ClipboardMonitorService.
-    /// </summary>
-    public void OnClipboardChanged(object? sender, string newText)
+    public MainWindowViewModel(IClipboardRepository repo)
     {
-        ClipboardHistory.Insert(0, newText);
+        _repo = repo;
+        _ = LoadHistoryAsync();
+    }
+
+    // Called once on startup — populates the list from SQLite
+    private async Task LoadHistoryAsync()
+    {
+        var entries = await _repo.LoadAllAsync();
+        foreach (var entry in entries)
+            ClipboardHistory.Add(entry);
+    }
+
+    // Called by the monitor every time the clipboard changes
+    public async void OnClipboardChanged(object? sender, string content)
+    {
+        if (string.IsNullOrWhiteSpace(content) || ClipboardHistory.Contains(content))
+            return;
+
+        ClipboardHistory.Insert(0, content);
+        await _repo.SaveEntryAsync(content);
     }
 }

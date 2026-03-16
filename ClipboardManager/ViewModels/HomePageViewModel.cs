@@ -6,6 +6,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input.Platform;
+using ClipboardManager.Models;
 using ClipboardManager.Services;
 using ClipboardManager.Services.Interfaces;
 using ClipboardManager.Views;
@@ -56,31 +57,3 @@ public class HomePageViewModel : ViewModelBase
 }
 
 
-public class ClipboardEntry
-{
-    public DateTime Time { get; set; }
-    public string Text { get; set; }
-
-    public ClipboardEntry(string text)
-    {
-        Text = text;
-        Time = DateTime.Now;
-    }
-
-    // public bool Equals(ClipboardEntry? other)
-    // {
-    //     if (other is null) return false;
-    //     return Text == other.Text;
-    //     
-    // }
-
-    public override bool Equals(object obj)
-    {
-        if (obj is ClipboardEntry other)
-        {
-            return Text == other.Text;
-        }
-        return false;
-    }
-    
-}

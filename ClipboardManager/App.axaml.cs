@@ -32,6 +32,20 @@ public partial class App : Application
             services.AddSingleton<IPlatformServicesAccessor>(
                 new DefaultPlatformServiceAccessor(desktop));
 
+            // After the existing IPlatformServicesAccessor registration, add:
+            var dbConfig = new DatabaseConfig
+            {
+                Backend = DatabaseBackend.Sqlite,
+                SqlitePath = "clipboard.db"
+            };
+            services.AddSingleton(dbConfig);
+
+            services.AddSingleton<IClipboardRepository>(provider =>
+            {
+                var cfg = provider.GetRequiredService<DatabaseConfig>();
+                return new SqliteClipboardRepository(cfg.SqlitePath);
+            });
+            
             // Clipboard monitor — resolved lazily via a factory so that
             // IClipboard is only accessed after the MainWindow is assigned.
             services.AddSingleton<IClipboardMonitorService>(provider =>
@@ -58,7 +72,13 @@ public partial class App : Application
             monitor.Start();
 
             // 3. Stop the monitor cleanly when the app exits.
-            desktop.Exit += (_, _) => monitor.Stop();
+            // Replace the existing desktop.Exit line with:
+            desktop.Exit += async (_, _) =>
+            {
+                monitor.Stop();
+                if (provider.GetRequiredService<IClipboardRepository>() is IAsyncDisposable d)
+                    await d.DisposeAsync();
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
