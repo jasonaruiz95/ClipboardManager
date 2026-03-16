@@ -26,7 +26,7 @@ A cross-platform desktop clipboard history manager built with [Avalonia UI](http
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ClipboardManager.git
+git clone https://github.com/jasonaruiz95/ClipboardManager.git
 cd ClipboardManager
 ```
 
