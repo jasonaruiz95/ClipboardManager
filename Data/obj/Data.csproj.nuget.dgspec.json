@@ -1,33 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jason\\RiderProjects\\ClipboardManager\\Data\\Data.csproj": {}
+    "/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jason\\RiderProjects\\ClipboardManager\\Data\\Data.csproj": {
+    "/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jason\\RiderProjects\\ClipboardManager\\Data\\Data.csproj",
+        "projectUniqueName": "/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\Jason\\RiderProjects\\ClipboardManager\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\Jason\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jason\\RiderProjects\\ClipboardManager\\Data\\obj\\",
+        "projectPath": "/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/Data.csproj",
+        "packagesPath": "/Users/jasonruiz/.nuget/packages/",
+        "outputPath": "/Users/jasonruiz/Code/Avalonia/ClipboardManager/Data/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jason\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/jasonruiz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {},
+          "https://pkgs.dev.azure.com/melonlocaldev/d0043f4c-fc37-49d5-bbb5-f92e13f4a584/_packaging/ThePatch/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
@@ -66,12 +62,6 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[10.0.5, )"
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[10.0.3, )",
-              "autoReferenced": true
             }
           },
           "imports": [
@@ -85,22 +75,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.osx-arm64",
-              "version": "[10.0.3, 10.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.osx-arm64",
-              "version": "[10.0.3, 10.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -375,11 +355,6 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
-        }
-      },
-      "runtimes": {
-        "osx-arm64": {
-          "#import": []
         }
       }
     }
