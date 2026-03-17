@@ -1,0 +1,6 @@
+@ClipboardManager.Api_HostAddress = http://localhost:5085
+
+GET {{ClipboardManager.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

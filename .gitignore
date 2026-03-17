@@ -3,4 +3,6 @@
 /ClipboardManager/publish/
 /Data/bin/
 /Data/obj/
+/ClipboardManager.Api/bin/
+/ClipboardManager.Api/obj/
 .env
