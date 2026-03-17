@@ -15,7 +15,7 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <ui:NavigationView x:Name="nav"
+    <ui:NavigationView x:Name="Navigation"
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
         PaneDisplayMode="Auto"

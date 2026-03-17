@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
+using System.IO;
 using Avalonia.Markup.Xaml;
 using ClipboardManager.Services;
 using ClipboardManager.Services.Interfaces;
@@ -14,6 +15,8 @@ namespace ClipboardManager;
 
 public partial class App : Application
 {
+    public static IServiceProvider? Services { get; private set; }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -27,16 +30,19 @@ public partial class App : Application
         {
             var services = new ServiceCollection();
 
-            // Platform accessor — wraps the desktop lifetime so services can
-            // reach IClipboard without taking a direct Window dependency.
             services.AddSingleton<IPlatformServicesAccessor>(
                 new DefaultPlatformServiceAccessor(desktop));
 
-            // After the existing IPlatformServicesAccessor registration, add:
+            // Fixed: absolute path for SQLite
+            var dbFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "Library", "Application Support", "ClipboardManager"
+            );
+            Directory.CreateDirectory(dbFolder);
             var dbConfig = new DatabaseConfig
             {
                 Backend = DatabaseBackend.Sqlite,
-                SqlitePath = "clipboard.db"
+                SqlitePath = Path.Combine(dbFolder, "clipboard.db")
             };
             services.AddSingleton(dbConfig);
 
@@ -45,36 +51,33 @@ public partial class App : Application
                 var cfg = provider.GetRequiredService<DatabaseConfig>();
                 return new SqliteClipboardRepository(cfg.SqlitePath);
             });
-            
-            // Clipboard monitor — resolved lazily via a factory so that
-            // IClipboard is only accessed after the MainWindow is assigned.
+
             services.AddSingleton<IClipboardMonitorService>(provider =>
             {
                 var accessor = provider.GetRequiredService<IPlatformServicesAccessor>();
                 return new ClipboardMonitorService(accessor.Clipboard);
             });
 
-            services.AddTransient<MainWindowViewModel>();
-// Add alongside the other service registrations:
             services.AddSingleton<IClipboardService, ClipboardService>();
             services.AddHttpClient<ISyncService, SyncService>();
+
+            // Fixed: register all ViewModels
+            services.AddTransient<MainWindowViewModel>();
+            services.AddTransient<HomePageViewModel>();
+            services.AddTransient<SettingsViewModel>();
+
             var provider = services.BuildServiceProvider();
+            Services = provider;
 
-            // 1. Create the window and assign DataContext
-            var vm = provider.GetRequiredService<HomePageViewModel>();
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = vm,
-            };
+            var homePageVm = provider.GetRequiredService<HomePageViewModel>();
+            var settingsVm = provider.GetRequiredService<SettingsViewModel>();
 
-            // 2. Now that MainWindow exists, IClipboard is available —
-            //    resolve and start the monitor.
+            desktop.MainWindow = new MainWindow(homePageVm, settingsVm);
+
             var monitor = provider.GetRequiredService<IClipboardMonitorService>();
-            monitor.ClipboardChanged += vm.OnClipboardChanged;
+            monitor.ClipboardChanged += homePageVm.OnClipboardChanged;
             monitor.Start();
 
-            // 3. Stop the monitor cleanly when the app exits.
-            // Replace the existing desktop.Exit line with:
             desktop.Exit += async (_, _) =>
             {
                 monitor.Stop();
