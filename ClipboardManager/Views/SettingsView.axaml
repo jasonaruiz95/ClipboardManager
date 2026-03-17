@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ClipboardManager.ViewModels"
+             x:DataType="vm:SettingsViewModel"
+             x:Class="ClipboardManager.Views.SettingsView">
+    <StackPanel Margin="20">
+        <TextBlock FontSize="24" Text="Settings" />
+        <!-- Add your settings controls here -->
+    </StackPanel>
+</UserControl>

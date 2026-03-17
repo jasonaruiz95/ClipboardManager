@@ -61,7 +61,7 @@ public partial class App : Application
             var provider = services.BuildServiceProvider();
 
             // 1. Create the window and assign DataContext
-            var vm = provider.GetRequiredService<MainWindowViewModel>();
+            var vm = provider.GetRequiredService<HomePageViewModel>();
             desktop.MainWindow = new MainWindow
             {
                 DataContext = vm,
