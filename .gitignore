@@ -1,3 +1,6 @@
 ﻿/ClipboardManager/bin/
 /ClipboardManager/obj/
 /ClipboardManager/publish/
+/Data/bin/
+/Data/obj/
+.env

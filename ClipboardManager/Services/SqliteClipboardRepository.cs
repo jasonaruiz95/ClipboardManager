@@ -44,6 +44,13 @@ public class SqliteClipboardRepository : IClipboardRepository, IAsyncDisposable
             .ToListAsync();
     }
 
+    public async Task<IReadOnlyList<ClipboardEntry>> LoadAllEntriesAsync()
+    {
+        return await _db.ClipboardEntries
+            .OrderByDescending(e => e.CopiedAt)
+            .ToListAsync();
+    }
+
     public async Task DeleteEntryAsync(string content)
     {
         var entry = await _db.ClipboardEntries

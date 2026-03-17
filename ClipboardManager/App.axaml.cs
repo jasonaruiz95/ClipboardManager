@@ -57,6 +57,7 @@ public partial class App : Application
             services.AddTransient<MainWindowViewModel>();
 // Add alongside the other service registrations:
             services.AddSingleton<IClipboardService, ClipboardService>();
+            services.AddHttpClient<ISyncService, SyncService>();
             var provider = services.BuildServiceProvider();
 
             // 1. Create the window and assign DataContext
